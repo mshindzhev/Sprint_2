@@ -14,9 +14,8 @@ class EmployeeSalary:
         return f"{self.name}@email.com"
 
     @classmethod
-    def set_hourly_payment(cls):
-        cls.hourly_payment = 500
-        return cls.hourly_payment
+    def set_hourly_payment(cls, new_hourly_payment):
+        cls.hourly_payment = new_hourly_payment
 
     def salary(self):
         return self.hours * self.hourly_payment
