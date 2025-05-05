@@ -1,35 +1,35 @@
 class PointsForPlace:
-    points = 0
 
-    @classmethod
-    def get_points_for_place(cls, place):
+    def __init__(self):
+        self.points = 0
+
+    def get_points_for_place(self, place):
         if place > 100:
             print(f'Спортсмен не может занять нулевое или отрицательное место')
         elif place < 1:
             print(f'Спортсмен не может занять нулевое или отрицательное место')
         else:
-            PointsForPlace.points = 101 - place
-            return PointsForPlace.points
+            self.points = 101 - place
+            return self.points
 
 
 class PointsForMeters:
-    points = 0
 
-    @classmethod
-    def get_points_for_meters(cls, meters):
+    def __init__(self):
+        self.points = 0
+
+    def get_points_for_meters(self, meters):
         if meters < 0:
             print(f'Количество метров не может быть отрицательным')
         else:
-            PointsForMeters.points = int(meters * 0.5)
-            return PointsForMeters.points
+            self.points = int(meters * 0.5)
+            return self.points
 
 class TotalPoints(PointsForPlace, PointsForMeters):
-    total = 0
 
-    @classmethod
-    def get_total_points(cls, place, meter):
-        TotalPoints.total = PointsForPlace.get_points_for_place(place) + PointsForMeters.get_points_for_meters(meter)
-        return TotalPoints.total
+    def get_total_points(self, place, meter):
+        total = self.get_points_for_place(place) + self.get_points_for_meters(meter)
+        return total
 
 points_for_place = PointsForPlace()
 print(points_for_place.get_points_for_place(10))

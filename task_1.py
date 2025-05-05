@@ -18,7 +18,7 @@ class ExtendedCase(Case):
         self.environment = str(environment)
 
     def print_test_case_info(self):
-        Case.print_test_case_info(self)
+        super().print_test_case_info()
         print(f"\nПредусловие: {self.precondition}"
               f"\nОкружение: {self.environment}")
 
